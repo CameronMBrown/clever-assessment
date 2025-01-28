@@ -1,0 +1,18 @@
+# Ignore WordPress core files
+/../
+
+# Ignore uploads and plugins
+/../../plugins/
+/../../uploads/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Node.js dependencies
+node_modules/
+*.log
+
+# Ignore compiled assets
+*.css.map
+*.js.map
