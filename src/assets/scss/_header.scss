@@ -1,0 +1,47 @@
+@use "./utils/variables" as vars;
+@use "./utils/mixins" as mix;
+
+header {
+  position: sticky;
+  top: 0;
+  box-shadow: vars.$shadow;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0 auto;
+
+  .site-logo img {
+    display: inline-block;
+    height: 100%;
+    max-width: 8rem;
+
+    @include mix.bp(md) {
+      max-width: 10rem;
+    }
+  }
+
+  .contact-btns {
+    .desktop-contact-btn {
+      display: none;
+      visibility: hidden;
+
+      @include mix.bp(sm) {
+        display: block;
+        visibility: visible;
+      }
+    }
+
+    .mobile-contact-btn {
+      display: block;
+      visibility: visible;
+
+      @include mix.bp(sm) {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
+}

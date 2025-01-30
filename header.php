@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -12,48 +13,33 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'clever-assessment' ); ?></a>
+<body>
+	<?php wp_body_open(); ?>
+	<div id="page" class="site">
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$clever_assessment_description = get_bloginfo( 'description', 'display' );
-			if ( $clever_assessment_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $clever_assessment_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'clever-assessment' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		<header id="masthead" class="site-header">
+			<nav id="site-navigation" class="main-navigation container">
+				<a class="site-logo" href="<?php echo esc_url(home_url('/')); ?>">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/bath-experts-logo-blue.svg" alt="Bath Experts Logo" width="200" height="auto">
+				</a>
+				<div class="contact-btns">
+					<button class="btn btn-secondary desktop-contact-btn">
+						<a href="tel:+18666468843" target="_self" aria-label="866-646-8843">866-646-8843</a>
+					</button>
+					<button class="mobile-contact-btn">
+						<a href="tel:+18666468843" target="_self" aria-label="866-646-8843">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/phone.svg" alt="Bath Experts Logo" width="16" height="16">
+						</a>
+					</button>
+				</div>
+			</nav>
+		</header>

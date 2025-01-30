@@ -1,0 +1,44 @@
+@use "../utils/variables" as vars;
+@use "../utils/mixins";
+@use "../utils/fonts";
+
+button,
+.btn {
+  @include fonts.montserrat(1rem, vars.$white, 600);
+  background-color: vars.$teal;
+  border-radius: 0.5rem;
+  border: 1px solid vars.$light-blue;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: vars.$light-blue;
+  }
+
+  &.btn-secondary {
+    background-color: transparent;
+    color: vars.$blue;
+
+    &:hover {
+      background-color: vars.$light-blue;
+      color: vars.$white;
+    }
+  }
+
+  &.btn-tertiary {
+    background-color: transparent;
+
+    &:hover {
+      background-color: vars.$light-blue;
+    }
+  }
+}
+
+// override some default link styles
+a {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
+}

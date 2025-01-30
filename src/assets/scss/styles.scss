@@ -1,0 +1,66 @@
+// variables
+@use './utils/variables' as vars;
+@use './utils/mixins' as mix;
+
+// fonts
+@use './utils/fonts';
+
+// UI
+@use './UI/button';
+
+// components
+@use './header';
+@use './footer';
+
+* {
+  box-sizing: border-box;
+}
+
+//  --- typography ---
+body {
+  @include fonts.montserrat();
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-size: 1.5rem;
+
+  @include mix.bp(sm) {
+    font-size: 1.875rem;
+  }
+  @include mix.bp(lg) {
+    font-size: 2rem;
+  }
+}
+
+// --- sizing ---
+.container {
+  width: 100%;
+
+  @include mix.bp(xs) {
+    max-width: 640px;
+  }
+
+  @include mix.bp(sm) {
+    max-width: 768px;
+  }
+
+  @include mix.bp(md) {
+    max-width: 1024px;
+  }
+
+  @include mix.bp(lg) {
+    max-width: 1280px;
+  }
+}
