@@ -1,6 +1,6 @@
-@use "../utils/variables" as vars;
-@use "../utils/mixins";
-@use "../utils/fonts";
+@use '../utils/variables' as vars;
+@use '../utils/mixins';
+@use '../utils/fonts';
 
 button,
 .btn {
@@ -32,6 +32,18 @@ button,
 
     &:hover {
       background-color: vars.$light-blue;
+    }
+  }
+
+  &.btn__carousel {
+    border-radius: 50%;
+    background-color: vars.$white;
+    filter: drop-shadow(0, 10px, 15px, #00000024);
+    transition: all 200ms ease;
+
+    &:hover {
+      background-color: vars.$teal;
+      color: vars.$white;
     }
   }
 }

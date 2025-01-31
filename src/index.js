@@ -1,3 +1,3 @@
-import "./assets/scss/styles.scss"
+import './assets/scss/styles.scss';
 
-console.log("hello from index!")
+// console.log("hello from index!")

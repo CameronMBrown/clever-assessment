@@ -58,7 +58,7 @@
 
   .footer-btns {
     @include mix.flex-center(column);
-    gap: 0.75rem;
+    gap: 1rem;
     width: 100%;
 
     .btn {
@@ -67,6 +67,7 @@
 
     @include mix.bp(sm) {
       flex-direction: row;
+      gap: 2rem;
 
       .btn {
         width: auto;

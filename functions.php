@@ -184,3 +184,15 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+function enqueue_swatches_script()
+{
+	wp_enqueue_script(
+		'swatches-modal', // Handle
+		get_template_directory_uri() . '/js/swatches-modal.js', // Script URL
+		array(), // Dependencies
+		filemtime(get_template_directory() . '/js/swatches-modal.js'), // Version
+		true // Load in footer
+	);
+}
+add_action('wp_enqueue_scripts', 'enqueue_swatches_script');

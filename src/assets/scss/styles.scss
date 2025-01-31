@@ -12,6 +12,9 @@
 @use './header';
 @use './footer';
 
+// templates
+@use './swatches-section';
+
 * {
   box-sizing: border-box;
 }
@@ -45,6 +48,14 @@ h2 {
 }
 
 // --- sizing ---
+section {
+  padding: 2rem 0;
+
+  @include mix.bp(md) {
+    padding: 4rem 0;
+  }
+}
+
 .container {
   width: 100%;
 

@@ -11,10 +11,19 @@
  */
 
 ?>
-<a href="#estimateform" class="sticky-footer">
-	<img class="footer-logo" src="<?php echo get_template_directory_uri(); ?>/img/calendar.svg" alt="Calendar icon" width="24" height="24">
-	<span class="footer-body">Schedule Your Free Estimate</span>
-</a>
+<?php
+$stickyFooter = get_field("sticky_footer_banner");
+
+// optional sticky footer banner CTA
+if ($stickyFooter) { ?>
+	<a href="#estimateform" class="sticky-footer">
+		<img class="footer-logo" src="<?php echo get_template_directory_uri(); ?>/img/calendar.svg" alt="Calendar icon" width="24" height="24">
+		<span class="footer-body">Schedule Your Free Estimate</span>
+	</a>
+<?php
+}
+?>
+
 <footer class="site-footer">
 	<div class="footer-container">
 		<img class="footer-logo" src="<?php echo get_template_directory_uri(); ?>/img/bath-experts-logo-white.svg" alt="Bath Experts Logo" width="200" height="auto">

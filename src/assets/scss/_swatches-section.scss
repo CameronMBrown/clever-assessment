@@ -1,0 +1,69 @@
+@use './utils/mixins' as mix;
+@use './utils/variables' as vars;
+@use './utils/fonts';
+
+// modal gallery
+@use './swatches-modal-gallery';
+
+.swatches-section {
+  @include mix.flex-center();
+  padding: 2rem 1rem;
+}
+
+.swatches-section__title {
+  @include fonts.montserrat(1.25rem, vars.$blue, 400);
+
+  @include mix.bp(sm) {
+    @include fonts.montserrat(1.5rem, vars.$blue, 600);
+  }
+}
+
+.swatches-section__swatches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  @include mix.bp(sm) {
+    gap: 2rem;
+  }
+  @include mix.bp(md) {
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.swatch {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+
+  .swatch__image {
+    @include mix.flex-center();
+    width: 100%;
+    height: 100%;
+  }
+
+  .swatch__label-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 33.3%;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+
+    .swatch__label {
+      @include fonts.montserrat(1rem, vars.$white, 600);
+      text-transform: uppercase;
+      width: 100%;
+      text-align: center;
+
+      @include mix.bp(md) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

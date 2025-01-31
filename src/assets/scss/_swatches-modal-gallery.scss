@@ -1,0 +1,116 @@
+@use './utils/variables' as vars;
+@use './utils/mixins' as mix;
+@use './utils/fonts';
+
+/* Swatch Modal */
+.swatch-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(3, 45, 91, 0.867);
+}
+
+.swatch-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.swatch-modal__close {
+  position: absolute;
+  overflow: hidden;
+  top: -3rem;
+  right: 10px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 2px solid vars.$white;
+  opacity: 1;
+
+  &:hover {
+    background-color: vars.$white;
+  }
+}
+
+/* Swatch Modal Slide Animations */
+.swatch-modal__carousel {
+  position: relative;
+  margin: 20px 0;
+  aspect-ratio: 1 / 1;
+  max-width: 600px;
+  max-height: min(75vh, 600px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.swatch-modal__slide {
+  position: absolute;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+  opacity: 0; /* Hide all slides by default */
+
+  /* Active slide */
+  &.active {
+    opacity: 1; /* Show the active slide */
+    transform: translateX(0);
+  }
+
+  /* Slide to the left (off the screen to the left) */
+  &.slide-left {
+    transform: translateX(-200%);
+  }
+
+  /* Slide to the right (off the screen to the right) */
+  &.slide-right {
+    transform: translateX(200%);
+  }
+
+  /* Slide in from the right */
+  &.slide-in-from-right {
+    transform: translateX(200%);
+  }
+
+  /* Slide in from the left */
+  &.slide-in-from-left {
+    transform: translateX(-200%);
+  }
+
+  img {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .swatch-modal__label {
+    @include fonts.montserrat(1rem, vars.$white, 400);
+    text-transform: uppercase;
+    margin-top: 1rem;
+  }
+}
+
+// nav buttons
+.swatch-modal__navigation {
+  @include mix.flex-center();
+  gap: 1rem;
+  margin-top: 2rem;
+  z-index: 100;
+  position: relative;
+
+  .swatch-modal__prev,
+  .swatch-modal__next {
+    color: vars.$blue;
+  }
+}
