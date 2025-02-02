@@ -9,6 +9,9 @@
 // Get the field group prefix (e.g., 'ls_' or 'ss_')
 $prefix = $args['prefix'];
 
+// Get the section background colour
+$bg_Colour = $args['bg_colour'] ?? '#FFFFFF';
+
 // Get the fields
 $section_title = get_field($prefix . 'section_title');
 $swatches = [];
@@ -33,7 +36,7 @@ for ($i = 1; $i <= 20; $i++) {
 $modal_id = 'swatch-modal-' . sanitize_title($section_title);
 ?>
 
-<section id="<?php echo esc_attr(sanitize_title($section_title)); ?>" class="swatches-section">
+<section id="<?php echo esc_attr(sanitize_title($section_title)); ?>" class="swatches-section" style="background-color: <?php echo $bg_Colour ?>;">
   <div class="container">
     <?php if ($section_title) : ?>
       <h2 class="swatches-section__title"><?php echo esc_html($section_title); ?></h2>

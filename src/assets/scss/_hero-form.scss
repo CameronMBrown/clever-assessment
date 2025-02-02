@@ -1,0 +1,146 @@
+@use './utils/mixins' as mix;
+@use './utils/variables' as vars;
+@use './utils/fonts';
+
+.hero-form-container {
+  z-index: 2;
+  padding: 1rem;
+  @include mix.flex-center();
+
+  @media (max-width: 767px) {
+    background-image: none !important;
+  }
+}
+
+.hero-form {
+  background: vars.$light-blue; // Adjust to match mockup
+  padding: 25px;
+  border-radius: 0.75rem;
+  max-width: 450px;
+  width: 100%;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.14));
+  color: vars.$white;
+  text-align: center;
+  margin: -4rem 1rem 0 1rem;
+  z-index: 2;
+
+  @include mix.bp(sm) {
+    margin: 1rem 0 -4rem 0;
+  }
+
+  .signup-form__header {
+    padding-bottom: 0.75rem;
+
+    h5 {
+      @include fonts.montserrat(1.5rem, vars.$white, 700);
+      margin-bottom: 0.5rem;
+    }
+
+    .promo-subtitle {
+      margin-bottom: 1rem;
+    }
+
+    .signup-form__five-stars {
+      width: 99px;
+      object-fit: contain;
+    }
+
+    .form-rating {
+      @include fonts.montserrat(1rem, vars.$white, 600);
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 0.5rem;
+    border: 1px solid vars.$greyDark;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+
+    &::placeholder,
+    &[type='date'] {
+      padding-left: 0.5rem;
+      @include fonts.montserrat(1rem, vars.$greyDark, 400);
+    }
+  }
+
+  select {
+    background: url('/img/Form-Incrementer.png') no-repeat 98% center, vars.$white;
+    color: vars.$greyDark;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    p {
+      width: 100%;
+    }
+
+    input {
+      flex: 1;
+    }
+
+    &.name p,
+    &.date p,
+    &.phone-zip p {
+      width: 100%;
+
+      @include mix.bp(sm) {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      span {
+        width: 100%;
+      }
+    }
+  }
+
+  input[type='checkbox'] {
+    width: auto;
+    margin-right: 10px;
+    margin-bottom: 3px;
+  }
+
+  .optional-appointment {
+    font-weight: 600;
+    line-height: 2rem;
+  }
+
+  .terms {
+    text-align: left;
+    padding-bottom: 0.25rem;
+  }
+
+  // Submit button
+  p:has(input[type='submit']) {
+    height: 44px;
+    cursor: pointer;
+    padding-top: 0.5rem;
+  }
+
+  // read more button
+  .read-more-btn {
+    display: inline;
+    padding: 0;
+    background: transparent;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+
+  // Error messages
+  .wpcf7-not-valid-tip {
+    text-align: left;
+    margin: -0.5rem 0 0.5rem;
+    padding: 0.2rem;
+    background-color: vars.$grey;
+    border-radius: 0.5rem;
+  }
+}

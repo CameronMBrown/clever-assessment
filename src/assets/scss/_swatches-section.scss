@@ -5,11 +5,6 @@
 // modal gallery
 @use './swatches-modal-gallery';
 
-.swatches-section {
-  @include mix.flex-center();
-  padding: 2rem 1rem;
-}
-
 .swatches-section__title {
   @include fonts.montserrat(1.25rem, vars.$blue, 400);
 

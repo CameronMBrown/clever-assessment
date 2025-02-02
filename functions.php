@@ -185,8 +185,49 @@ if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-function enqueue_swatches_script()
+function remove_editor_on_homepage()
 {
+	if (is_admin()) {
+		$screen = get_current_screen();
+
+		// Check if we are on the 'edit' screen for the homepage
+		if ($screen && $screen->id === 'page' && get_option('page_on_front') == get_the_ID()) {
+			remove_post_type_support('page', 'editor');
+		}
+	}
+}
+add_action('admin_head', 'remove_editor_on_homepage');
+
+function enqueue_custom_scripts()
+{
+	wp_enqueue_script(
+		'signup-form', // Handle
+		get_template_directory_uri() . '/js/signup-form.js', // Script URL
+		array(), // Dependencies
+		filemtime(get_template_directory() . '/js/signup-form.js'), // Version
+		false // Load in footer
+	);
+	wp_enqueue_script(
+		'video-section', // Handle
+		get_template_directory_uri() . '/js/video-section.js', // Script URL
+		array(), // Dependencies
+		filemtime(get_template_directory() . '/js/video-section.js'), // Version
+		true // Load in footer
+	);
+	wp_enqueue_script(
+		'review-cards-carousel', // Handle
+		get_template_directory_uri() . '/js/review-cards-carousel.js', // Script URL
+		array(), // Dependencies
+		filemtime(get_template_directory() . '/js/review-cards-carousel.js'), // Version
+		true // Load in footer
+	);
+	wp_enqueue_script(
+		'before-after-revealer', // Handle
+		get_template_directory_uri() . '/js/before-after-revealer.js', // Script URL
+		array(), // Dependencies
+		filemtime(get_template_directory() . '/js/before-after-revealer.js'), // Version
+		true // Load in footer
+	);
 	wp_enqueue_script(
 		'swatches-modal', // Handle
 		get_template_directory_uri() . '/js/swatches-modal.js', // Script URL
@@ -195,4 +236,4 @@ function enqueue_swatches_script()
 		true // Load in footer
 	);
 }
-add_action('wp_enqueue_scripts', 'enqueue_swatches_script');
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');

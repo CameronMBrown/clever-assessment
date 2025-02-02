@@ -1,0 +1,73 @@
+@use './utils/variables' as vars;
+@use './utils/mixins' as mix;
+@use './utils/fonts';
+
+.safety-features-section {
+  .safety-features-wrapper {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .safety-features-heading {
+    margin-bottom: 2rem;
+
+    .safety-features-title {
+      @include fonts.montserrat(1.5rem, vars.$blue, 700);
+      margin-bottom: 0.5rem;
+
+      @include mix.bp(sm) {
+        font-size: 1.875rem;
+      }
+    }
+
+    .safety-features-subtitle {
+      @include fonts.montserrat(1rem, vars.$blue);
+    }
+  }
+
+  .safety-cards-container {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+    grid-template-columns: 1fr;
+
+    @include mix.bp(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mix.bp(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .safety-card {
+    background: vars.$white;
+    border-radius: 8px;
+    text-align: left;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    &__content {
+      padding: 1rem;
+
+      @include mix.bp(sm) {
+        padding: 1.5rem;
+      }
+
+      .safety-card__title {
+        @include fonts.montserrat(1rem, vars.$blue, 600);
+        margin-bottom: 0.5rem;
+      }
+
+      .safety-card__body {
+        @include fonts.montserrat(1rem, vars.$blue);
+        line-height: 24px;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

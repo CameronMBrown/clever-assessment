@@ -1,0 +1,81 @@
+@use './utils/variables' as vars;
+@use './utils/mixins' as mix;
+@use './utils/fonts';
+
+.shower-features-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.shower-features__heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.shower-features__content {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  align-items: center;
+  padding: 1rem 0;
+  gap: 2rem;
+  width: 100%;
+
+  @include mix.bp(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include mix.bp(md) {
+    gap: 4rem;
+  }
+
+  .shower-features__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    height: 100%;
+
+    .shower-features__card {
+      background-color: vars.$white;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      min-height: 208px;
+
+      img {
+        width: 40px;
+        aspect-ratio: 1/1;
+
+        @include mix.bp(md) {
+          width: 64px;
+        }
+      }
+
+      &--text {
+        @include fonts.montserrat(0.75rem, vars.$blue, 400);
+
+        @include mix.bp(md) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .before-after-revealer {
+    aspect-ratio: 5 / 6;
+    max-height: 710px;
+    max-width: 592px;
+    width: 100%;
+
+    .before-image img {
+      width: auto;
+    }
+
+    .after-image img {
+      width: 100%;
+    }
+  }
+}

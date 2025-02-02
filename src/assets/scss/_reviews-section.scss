@@ -1,0 +1,110 @@
+@use './utils/variables' as vars;
+@use './utils/mixins' as mix;
+@use './utils/fonts';
+
+.reviews-section {
+  flex-direction: column;
+  align-items: flex-start;
+
+  .reviews-section-heading {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 1rem auto;
+
+    @include mix.bp(sm) {
+      text-align: left;
+    }
+  }
+
+  .review-cards-container {
+    display: flex;
+    overflow: visible;
+    padding: 1rem 0;
+    gap: 0.5rem;
+  }
+}
+
+.review-card {
+  width: 288px;
+  height: 376px;
+  padding: 1rem;
+  background: vars.$white;
+
+  .review-card__header {
+    display: flex;
+    justify-content: space-between;
+
+    .review-card__header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .review-card__title {
+        @include fonts.montserrat(0875, vars.$black, 600);
+        text-transform: uppercase;
+      }
+
+      .review-card__reviewer {
+        @include fonts.montserrat(0.688rem, vars.$greyMed, 400);
+        text-transform: uppercase;
+
+        &--name {
+          text-transform: none;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .review-card__five-stars {
+      width: 99px;
+      object-fit: contain;
+    }
+  }
+
+  .review-card__logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .review-card__content {
+    @include fonts.montserrat(0.688rem, vars.$black, 400);
+    line-height: 1rem;
+    border-top: 1px solid #c3c3c388;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 280px;
+
+    .review-card__imgs {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      border-radius: 0.25rem;
+      overflow: hidden;
+      gap: 2px;
+
+      .review-card__img {
+        width: 128px;
+        height: 142px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.reviews-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @include mix.bp(sm) {
+    justify-content: flex-end;
+  }
+
+  .reviews-nav__btns {
+    display: flex;
+    gap: 0.5rem;
+  }
+}

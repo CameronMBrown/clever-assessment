@@ -7,6 +7,7 @@
 
 // UI
 @use './UI/button';
+@use './UI/card';
 
 // components
 @use './header';
@@ -14,6 +15,12 @@
 
 // templates
 @use './swatches-section';
+@use './before-after-section';
+@use './safety-features-section';
+@use './reviews-section';
+@use './video-section';
+@use './shower-features';
+@use './hero-section';
 
 * {
   box-sizing: border-box;
@@ -49,10 +56,12 @@ h2 {
 
 // --- sizing ---
 section {
-  padding: 2rem 0;
+  @include mix.flex-center();
+  padding: 2rem 1rem;
+  overflow: hidden;
 
   @include mix.bp(md) {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
   }
 }
 
@@ -73,5 +82,19 @@ section {
 
   @include mix.bp(lg) {
     max-width: 1280px;
+  }
+}
+
+// --- headings ---
+.heading {
+  @include fonts.montserrat(1.5rem, vars.$blue, 700);
+  line-height: 36px;
+  margin-bottom: 0.5rem;
+
+  @include mix.bp(sm) {
+    font-size: 30px;
+    line-height: 45px;
+  }
+  @include mix.bp(sm) {
   }
 }

@@ -3,7 +3,8 @@
 @use '../utils/fonts';
 
 button,
-.btn {
+.btn,
+input[type='submit'] {
   @include fonts.montserrat(1rem, vars.$white, 600);
   background-color: vars.$teal;
   border-radius: 0.5rem;
@@ -36,9 +37,11 @@ button,
   }
 
   &.btn__carousel {
+    color: vars.$blue;
+    border: none;
     border-radius: 50%;
     background-color: vars.$white;
-    filter: drop-shadow(0, 10px, 15px, #00000024);
+    filter: drop-shadow(0 10px 15px #00000024);
     transition: all 200ms ease;
 
     &:hover {

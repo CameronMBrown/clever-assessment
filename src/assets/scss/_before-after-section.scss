@@ -1,0 +1,46 @@
+@use './utils/variables' as vars;
+@use './utils/mixins' as mix;
+@use './utils/fonts';
+
+@use './before-after-revealer';
+
+.before-after-section {
+  @include mix.flex-center();
+}
+
+.before-after-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .before-after-heading-container {
+    text-align: center;
+    width: 100%;
+
+    .before-after-subtitle {
+      @include fonts.montserrat(1.25rem, vars.$blue, 400);
+
+      @include mix.bp(sm) {
+        @include fonts.montserrat(1.5rem, vars.$blue, 600);
+      }
+    }
+  }
+
+  .before-after-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .before-after-carousel {
+    position: relative;
+    width: 100%;
+    margin: 1rem auto 0 auto;
+    display: flex;
+    justify-content: flex-start; // Start from the left
+    overflow: hidden; // Hide overflow
+    scroll-behavior: smooth; // Smooth scrolling
+    gap: 1rem; // Space between items
+  }
+}

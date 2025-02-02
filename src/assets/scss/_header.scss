@@ -37,12 +37,22 @@ nav {
     }
 
     .mobile-contact-btn {
+      @include mix.flex-center();
+      padding: 1rem;
       display: block;
       visibility: visible;
+      background-color: vars.$blue;
 
       @include mix.bp(sm) {
         display: none;
         visibility: hidden;
+      }
+
+      a {
+        display: block;
+        height: 16px;
+        width: 16px;
+        line-height: 16px;
       }
     }
   }

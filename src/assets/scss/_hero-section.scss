@@ -1,0 +1,88 @@
+@use './utils/mixins' as mix;
+@use './utils/variables' as vars;
+@use './utils/fonts';
+
+@use './_hero-form.scss';
+
+.hero-section {
+  background-size: cover;
+  padding: 50px 0;
+  flex-direction: column;
+  padding: 0 0 2rem 0;
+
+  @include mix.bp(sm) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: vars.$blue;
+    padding: 0;
+    overflow: visible;
+    margin-bottom: 2rem;
+  }
+
+  .hero-section__bg {
+    @include mix.flex-center();
+    background-size: cover;
+    width: 100%;
+    padding: 4rem 1rem 8rem 1rem;
+    background-color: rgba(0, 0, 0, 30%);
+    position: relative;
+
+    @include mix.bp(sm) {
+      background: transparent;
+      background-image: none !important;
+      padding: 2rem;
+    }
+
+    // overlay
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+
+      @include mix.bp(sm) {
+        display: none;
+      }
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: vars.$white;
+      z-index: 2;
+
+      @include mix.bp(sm) {
+        text-align: left;
+      }
+
+      .hero-text {
+        margin-bottom: 20px;
+
+        h1 {
+          font-size: 2.5rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-size: 1.2rem;
+        }
+
+        .hero-divider {
+          margin: 2rem auto;
+        }
+
+        h5 {
+          @include fonts.montserrat(1rem, vars.$white, 700);
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
