@@ -5,6 +5,7 @@
 .reviews-section {
   flex-direction: column;
   align-items: flex-start;
+  margin: 0 auto;
 
   .reviews-section-heading {
     width: 100%;
@@ -98,6 +99,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  margin: 0 auto;
 
   @include mix.bp(sm) {
     justify-content: flex-end;
