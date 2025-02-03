@@ -32,7 +32,7 @@ if ($stickyFooter) { ?>
 			<p class="footer-body">Transform your outdated tub or shower with Bath Experts!</p>
 		</div>
 		<div class="footer-btns">
-			<button class="btn">Contact Us</button>
+			<button class="btn"><a href="#estimateform">Contact Us</a></button>
 			<button class="btn btn-tertiary">
 				<a href="tel:+18666468843" target="_self" aria-label="866-646-8843">866-646-8843</a>
 			</button>

@@ -11,12 +11,7 @@ get_header();
 <main id="primary" class="site-main">
   <?php
   // Hero Section
-  // if (get_field('video_url')) {
-  // $args = [
-  //   'bg_colour' => get_field('vs_bg_colour')
-  // ];
   include locate_template('hero-section.php', false);
-  // }
 
   // Video Section
   if (get_field('video_url')) {
