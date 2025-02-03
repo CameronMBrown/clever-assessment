@@ -52,7 +52,7 @@
   margin: 20px 0;
   aspect-ratio: 1 / 1;
   max-width: 600px;
-  max-height: min(75vh, 600px);
+  max-height: min(60vh, 600px);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -60,7 +60,7 @@
 .swatch-modal__slide {
   position: absolute;
   width: 100%;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   opacity: 0; /* Hide all slides by default */
 
   /* Active slide */
@@ -92,6 +92,8 @@
   img {
     width: 100%;
     max-width: 600px;
+    max-height: min(60vh, 600px);
+    object-fit: contain;
   }
 
   .swatch-modal__label {
