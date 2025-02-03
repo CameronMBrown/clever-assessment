@@ -62,3 +62,11 @@
     }
   }
 }
+
+.swatch:hover {
+  filter: brightness(1.1);
+
+  .swatch__label {
+    color: vars.$teal;
+  }
+}
