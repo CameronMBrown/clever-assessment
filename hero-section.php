@@ -24,7 +24,7 @@ do_action('qm/debug', $heroBg);
       </div>
     </div>
   </div>
-  <div class="hero-form-container" style="background-image: url(<?php echo $heroBg['url']; ?>); background-size: cover;">
+  <div id="estimateform" class="hero-form-container" style="background-image: url(<?php echo $heroBg['url']; ?>); background-size: cover;">
     <div class="hero-form">
       <div class="signup-form__header">
         <h5 class="form-promo"><?php echo $formPromo ?></h5>

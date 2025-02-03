@@ -10,7 +10,7 @@ $after_img = get_field("ds_after_img");
   <div class="shower-features__content">
     <div class="shower-features__cards">
       <?php for ($i = 1; $i <= 4; $i++) {
-        $cardImgSrc = get_template_directory_uri() . "/img/" . get_field("ds_card_img_{$i}") . ".svg";
+        $cardImgSrc = get_template_directory_uri() . "/img/" . strtolower(get_field("ds_card_img_{$i}")) . ".svg";
         $cardTxt = get_field("ds_card_txt_{$i}");
       ?>
         <div class="shower-features__card card">
